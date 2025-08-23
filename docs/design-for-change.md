@@ -1,23 +1,23 @@
 # Design for Change: Practices
 
-## Build with change in mind
+## Build with Change in mind
 
-### Modular structure
+<a id="practice-modular-structure"></a>
 <details>
-<summary>View guidance & examples</summary>
+<summary><h3>Modular structure</h3></summary>
 
 A modular system is organised into components or services that each focus on a single area. This limits the surface area of change and allows functionality to evolve independently.
 
 **Examples**
 
-**Service‑based backend layout**
+**Service-based backend layout**
 ```
 /services
   /users
   /orders
   /payments
 ```
-Each service contains only what it needs (logic, validation, DB queries) and exposes a clear API.
+Each service contains only what it needs — logic, validation, DB queries — and exposes a clear API to other parts of the system.
 
 **Frontend feature folders**
 ```
@@ -26,14 +26,14 @@ Each service contains only what it needs (logic, validation, DB queries) and exp
   /checkout
   /dashboard
 ```
-Group related files (components, tests, APIs, styles) to improve cohesion and reduce cross‑dependencies.
+Related files (components, tests, APIs, styles) are grouped together to improve cohesion and reduce cross-dependencies.
 </details>
 
-### Separation of concerns
+<a id="practice-separation-of-concerns"></a>
 <details>
-<summary>View guidance & examples</summary>
+<summary><h3>Separation of concerns</h3></summary>
 
-Keep responsibilities like business logic, data access, and presentation distinct. Each layer/component has a focused role.
+Responsibilities such as business logic, data access, and presentation are kept distinct. Each layer or component has a focused role.
 
 **Examples**
 
@@ -49,72 +49,72 @@ function createOrder(data) {
 ```jsx
 // Component only renders
 <OrderSummary order={order} />
-
 // Logic handled elsewhere
 const order = orderService.getSummary(cart);
 ```
 </details>
 
-### Composition over inheritance
+<a id="practice-composition-over-inheritance"></a>
 <details>
-<summary>View guidance & examples</summary>
+<summary><h3>Composition over inheritance</h3></summary>
 
-Prefer composing small, purpose‑specific pieces over deep inheritance chains.
+Complex inheritance chains make change harder. Composition — combining small, purpose-specific functions or components — keeps things more flexible.
 
 **Examples**
 
-**Express middleware stacking**
+**Middleware stacking**
 ```javascript
 app.use(authenticate);
 app.use(limitRequests);
 app.use(logUsage);
 ```
 
-**React hooks composition**
+**Frontend example**
 ```jsx
-function Checkout() {
-  const form = useForm();
-  const theme = useTheme();
-  const layout = useResponsiveLayout();
-  // ...
-}
+useForm();
+useTheme();
+useResponsiveLayout();
 ```
 </details>
 
-### DRY — but time it
+<a id="practice-dry"></a>
 <details>
-<summary>View guidance & examples</summary>
+<summary><h3>DRY</h3></summary>
 
-Reduce duplication where it’s clearly the **same behaviour**. Early on, a little duplication is fine; extract when patterns emerge (the “rule of three” is a good guardrail).
+Where code does the same thing in multiple places, extract it into a shared function, utility, or module. DRY code improves maintainability, reduces bugs, and makes systems easier to evolve.
 
 **Examples**
 
 **Shared logic extraction**
 ```javascript
 // Before
-const fullName1 = `${u.firstName} ${u.lastName}`;
-const fullName2 = `${u.firstName} ${u.lastName}`;
+const fullName1 = `${user.firstName} ${user.lastName}`;
+const fullName2 = `${user.firstName} ${user.lastName}`;
 
 // After
-const getFullName = (u) => `${u.firstName} ${u.lastName}`;
+const getFullName = (user) => `${user.firstName} ${user.lastName}`;
 ```
 
-**UI reuse**
+**Reusing UI components**
 ```jsx
-// Repetition
-<PrimaryButton label="Save" />
-<PrimaryButton label="Submit" />
+// Repetition:
+<SaveButton label="Save" />
+<SubmitButton label="Submit" />
 
-// DRY'd
+// DRY'd out:
 <Button type="primary" label="Save" />
+<Button type="submit" label="Save" />
 ```
+
+**Note**  
+Some duplication is fine early on. It's better to wait for patterns to emerge before creating abstractions that might not fit future needs. DRY doesn’t mean extract everything — it means recognise when something is becoming a pattern. The ‘Rule of three’ can be used as a guide to protect against abstracting too early.
 </details>
 
-### Clean‑up early
+<a id="practice-clean-up-early"></a>
 <details>
-<summary>View guidance & examples</summary>
+<summary><h3>Clean-up Early</h3></summary>
 
-Small refactors close to delivery prevent complexity from building up.
+Clean-up is most effective when done while the work is still fresh. Small refactors after delivery prevent complexity from accumulating unnoticed.
 
 **Examples**
 
@@ -128,17 +128,17 @@ Small refactors close to delivery prevent complexity from building up.
 ```javascript
 function submitForm(data) {
   const validated = validate(data);
-  const payload   = formatPayload(validated);
+  const payload = formatPayload(validated);
   api.submit(payload);
 }
 ```
 </details>
 
-### Design for iteration (avoid premature componentisation)
+<a id="practice-design-for-iteration"></a>
 <details>
-<summary>View guidance & examples</summary>
+<summary><h3>Design for iteration</h3></summary>
 
-Favour simple code (even duplicated) while exploring. Extract components once patterns are real or change pressure justifies it. Make changes small and reversible.
+Projects evolve. Designs that support small, reversible changes allow for faster progress and fewer large rewrites.
 
 **Examples**
 
@@ -152,121 +152,7 @@ if (features.isEnabled('newFlow')) {
 ```
 
 **Independent deployments**
-- Services deploy separately  
-- Backwards‑compatible schema changes  
-- Toggle new paths instead of long‑lived branches
-
-**Back‑out plans in ADRs**
-- How we’d revert  
-- Cost to change later  
-- Deprecation path if we keep it
-</details>
-
----
-
-## Design for impact, not impressiveness
-
-### Start with the why
-<details>
-<summary>View guidance & examples</summary>
-
-Anchor decisions to the problem and the outcome we want for users and the client.
-
-**Do this**
-- Write a one‑liner problem statement and success signal (e.g. “Reduce checkout drop‑off from 42% → 30%”).
-- Capture constraints (time/budget/risk appetite).  
-- Identify the *minimum* behaviour or metric we need to see in the next 2–4 weeks.
-
-**Example**
-```text
-Problem: Users abandon on payment step.
-Outcome: +12% successful payments (30 days).
-Constraint: 1 sprint, no gateway migration.
-Approach: Inline errors, save cardholder name, retry flow.
-Measure: Success rate, time‑to-complete, error types.
-```
-</details>
-
-### Right‑size the solution
-<details>
-<summary>View guidance & examples</summary>
-
-Choose the lightest approach that works now; increase investment when risk or scale demands it.
-
-**Examples**
-- **Prototype (≤12 weeks):** Monolith, minimal infra, smoke + 1–2 critical E2E tests, basic logging.
-- **Product‑market fit:** Modular monolith/small services, unit + contract + critical E2E, blue/green or canary.
-- **Regulated/scale:** Clear domain boundaries, full test pyramid incl. perf & security, SLOs and automated rollback.
-
-**Rule of thumb**
-- If a cheaper/simpler option gets ~80% of the value, prefer it and **name what you’ll revisit**.
-</details>
-
-### Prioritise client value
-<details>
-<summary>View guidance & examples</summary>
-
-Favour choices that the client can run, staff, and afford.
-
-**Consider**
-- Time‑to‑first‑value vs. long‑term ROI
-- Total cost of ownership (licenses, cloud, ops, people)
-- Hiring/onboarding reality for chosen tech
-- Vendor lock‑in and exit paths
-
-**Example**
-- Prefer a managed database your client’s team already knows over a trendy, niche alternative with higher ops burden.
-</details>
-
-### Focus on user needs
-<details>
-<summary>View guidance & examples</summary>
-
-Start from user jobs and real behaviour.
-
-**Do this**
-- Map the happy path + 1 painful edge case.
-- Instrument key steps (events/telemetry) before optimising.
-- Validate with a tiny slice (feature flag, % rollout), then expand.
-
-**Example**
-```text
-Observed: 24% of users fail card entry on mobile.
-Change: Move expiry/CVV to separate fields; add card type hint.
-Measure: Error rate by field, completion time.
-```
-</details>
-
-### Include accessibility and inclusivity
-<details>
-<summary>View guidance & examples</summary>
-
-Accessibility is part of “done”. Ship inclusive defaults and test like a real user.
-
-**Do this**
-- Use semantic HTML and proper labels/roles.
-- Keyboard and screen‑reader basic pass (focus order, visible focus).
-- Colour contrast and motion preferences respected.
-- Localisation basics where relevant (dates, numbers, copy length).
-
-**Snippet**
-```html
-<label for="email">Email address</label>
-<input id="email" name="email" type="email" autocomplete="email" />
-```
-</details>
-
-### Challenge over‑engineering
-<details>
-<summary>View guidance & examples</summary>
-
-Avoid building for hypothetical scale or edge cases.
-
-**Checks**
-- Would we regret not doing this in the next quarter?
-- What breaks if we ship the simpler version now?
-- Can we make this easy to remove/replace later?
-
-**Example**
-- Use a scheduled job + queue for weekly reports before introducing a full event bus; add the bus only if jobs back up or cross‑team integration is proven.
+- Services deployed separately
+- Schema changes made backwards-compatible
+- Feature toggles used instead of long-lived branches
 </details>
