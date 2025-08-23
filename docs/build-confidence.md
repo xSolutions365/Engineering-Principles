@@ -1,12 +1,14 @@
 # Build Confidence – Practices
 
+## Test With Purpose 
 
-
-Test With Purpose \- Practices
 
 **Effective testing is a cornerstone of quality software, enabling teams to build with confidence and iterate quickly. The following practices detail how to implement tests that are meaningful, robust, and maintainable, ensuring they genuinely validate system behaviour.**
 
-**Test for behaviour, not just implementation**
+<a id="test-for-behaviour,-not-just-implementation"></a>
+
+<details>
+<summary><h3>Test for behaviour, not just implementation</h3></summary>
 
 Tests should verify *what* a piece of code does (its externally observable behaviour) rather than *how* it does it (its internal structure or specific methods used). Behaviour-driven tests are more resilient to refactoring because they are coupled to the contract of the code, not its internal details. If the underlying implementation changes but the behaviour remains the same, the test should still pass. 
 
@@ -76,7 +78,12 @@ it('should return user preferences for a given user ID', async () => {
 });
 ```
 
-**Write unit tests with clear intent** 
+</details>
+
+<a id="write-unit-tests-with-clear-intent"></a>
+
+<details>
+<summary><h3>Write unit tests with clear intent</h3></summary>
 
 Each unit test should verify a single, specific piece of functionality, condition, or behaviour. Test names should be descriptive and clearly state what is being tested and what the expected outcome is. Adopting a clear structure like Arrange-Act-Assert (AAA) or Given-When-Then (GWT) helps maintain this clarity. This makes tests easier to understand, debug, and maintain. 
 
@@ -155,7 +162,12 @@ describe('PasswordValidator', () => {
 });
 ```
 
-**Use integration tests to cover real system flows** 
+</details>
+
+<a id="use-integration-tests-to-cover-real-system-flows"></a>
+
+<details>
+<summary><h3>Use integration tests to cover real system flows</h3></summary>
 
 Integration tests verify the interactions between different components, modules, or services of an application. They ensure that these parts work together as expected to achieve a specific outcome, simulating real user scenarios or API interactions. Unlike unit tests that test parts in isolation, integration tests focus on the "glue" that holds them together. 
 
@@ -220,7 +232,12 @@ describe('/orders API endpoint', () => {
 
 **Note:** Integration tests are typically slower and more complex to set up than unit tests, so they should focus on critical interaction points rather than exhaustive combinations.
 
-**Avoid fragile or flaky tests** 
+</details>
+
+<a id="avoid-fragile-or-flaky-tests"></a>
+
+<details>
+<summary><h3>Avoid fragile or flaky tests</h3></summary>
 
 Fragile tests break easily due to minor, unrelated changes in the production code (e.g., renaming a private method, changing UI structure that doesn't affect behaviour). Flaky tests pass or fail inconsistently without any code changes, often due to issues like race conditions, reliance on external systems, unmanaged test data, or timing dependencies. Both erode confidence in the test suite. **Examples** **Fragile Test (UI Example):** A UI test that uses a very specific CSS selector or relies on the exact text of a button.
 
@@ -288,7 +305,12 @@ it('updates user status after async operation', async () => {
 * **Random Data:** If tests use random data, ensure failures can be reproduced by seeding the random generator or logging the problematic data.  
 * Using current date/time: This can cause similar problems to random data where you can’t guarentee the test will always pass.
 
-**Tests fail when they should** 
+</details>
+
+<a id="tests-fail-when-they-should"></a>
+
+<details>
+<summary><h3>Tests fail when they should</h3></summary>
 
 Conversely to flaky tests, having a suite of tests that pass no matter what you throw at it gives a false sense of security. For a test to be considered as valuable, it needs to fail when a bug is introduced. Additionally, for each bug that’s released consider how you would have prevented that with an automated test.
 
@@ -300,7 +322,12 @@ Running mutation testing against your code base gives you insight into what area
 
 For each failure flagged by mutation testing, evaluate the likelihood and severity of the potential bug, and prioritise as appropriate.
 
-**Align with the testing pyramid** 
+</details>
+
+<a id="align-with-the-testing-pyramid"></a>
+
+<details>
+<summary><h3>Align with the testing pyramid</h3></summary>
 
 The testing pyramid is a model that guides the allocation of different types of tests in a project. It advocates for having a large base of fast, isolated unit tests, a smaller layer of integration tests that verify component interactions, and an even smaller layer of end-to-end (E2E) or UI tests that validate the entire system flow. The rationale is to optimize for feedback speed, cost of writing/maintaining tests, and reliability of test results. 
 
@@ -330,11 +357,16 @@ The testing pyramid is a model that guides the allocation of different types of 
 * **Inverted Pyramid (Ice Cream Cone):** Relying heavily on slow, brittle E2E tests with few unit or integration tests. Leads to slow feedback, high maintenance, and unstable CI pipelines.  
 * **Hourglass:** Many unit tests and E2E tests, but very few integration tests, leading to a gap in testing component interactions.
 
-# Catch Issues Early \- Practices
+</details>
+
+## Catch Issues Early – Practices
 
 Building high-quality, maintainable, and collaborative software requires a systematic approach that integrates quality checks and consistency into every stage of the development workflow. These practices not only reduce bugs and technical debt but also improve team efficiency and code readability. Below are some key software development best practices focused on code quality, consistency, and automated validation.
 
-**Use pre-commit hooks for quick checks**
+<a id="use-pre-commit-hooks-for-quick-checks"></a>
+
+<details>
+<summary><h3>Use pre-commit hooks for quick checks</h3></summary>
 
 Pre-commit hooks are scripts that run automatically before a commit is finalised in a Git repository. They serve as an immediate feedback mechanism, catching common issues like syntax errors, formatting inconsistencies, or basic linting violations *before* code is even committed. This prevents "dirty" code from entering the version history and saves time by catching problems early.
 
@@ -375,7 +407,12 @@ npx husky add .husky/pre-commit "npx lint-staged"
 
 Now, every time a developer tries to `git commit`, `lint-staged` will run ESLint (linter) and Prettier (formatter) only on the staged files, fixing issues and ensuring code quality before the commit is made.
 
-**Run linting and formatting automatically**
+</details>
+
+<a id="run-linting-and-formatting-automatically"></a>
+
+<details>
+<summary><h3>Run linting and formatting automatically</h3></summary>
 
 Linting and formatting tools enforce consistent code style, identify potential errors, and improve readability. Automating their execution ensures that all code adheres to team standards without manual effort or subjective debates.
 
@@ -418,7 +455,12 @@ jobs:
       run: npx prettier --check . # Fails if files are not formatted correctly
 ```
 
-**Set up type checking and static analysis**
+</details>
+
+<a id="set-up-type-checking-and-static-analysis"></a>
+
+<details>
+<summary><h3>Set up type checking and static analysis</h3></summary>
 
 This practice goes beyond basic linting to perform deeper code analysis.
 
@@ -455,7 +497,12 @@ console.log(greetUser(myUser));
 2. The TypeScript compiler (`tsc`) runs as part of the build process, catching type errors before runtime.  
 3. **SonarQube Integration:** SonarQube is integrated into the CI/CD pipeline. After the code is built, a SonarQube scanner analyzes the codebase. It provides a detailed report on code quality, security vulnerabilities, and technical debt, often with a "Quality Gate" that can block deployments if critical issues are found.
 
-**Define clear PR review standards**
+</details>
+
+<a id="define-clear-pr-review-standards"></a>
+
+<details>
+<summary><h3>Define clear PR review standards</h3></summary>
 
 Pull Request (PR) reviews are a critical human-driven quality gate. Establishing clear standards ensures that reviews are consistent, effective, and constructive, focusing on key aspects of code quality, correctness, and adherence to design.
 
@@ -485,7 +532,12 @@ Pull Request (PR) reviews are a critical human-driven quality gate. Establishing
   * Discussions should be constructive and focused on the code, not the person.  
   * Large PRs should be avoided; break them down into smaller, focused changes.
 
-**Run tests in CI, not just locally**
+</details>
+
+<a id="run-tests-in-ci,-not-just-locally"></a>
+
+<details>
+<summary><h3>Run tests in CI, not just locally</h3></summary>
 
 While local testing is essential for developer productivity, relying solely on it is risky. Running tests in a Continuous Integration (CI) environment ensures that tests are executed in a clean, consistent, and standardized environment, independent of individual developer setups. This acts as a critical gatekeeper for merging code.
 
@@ -542,11 +594,14 @@ jobs:
       run: echo "E2E tests would run here"
 ```
 
-# Secure By Default \- Practices
+</details>
 
-In an increasingly interconnected world, software security is no longer an optional add-on but a fundamental requirement. Neglecting security best practices can lead to data breaches, reputational damage, financial losses, and legal repercussions. Below are some essential security-focused software development best practices, providing examples for each.
 
-**Handle secrets and credentials securely**
+## Secure By Default 
+<a id="handle-secrets-and-credentials-securely"></a>
+
+<details>
+<summary><h3>Handle secrets and credentials securely</h3></summary>
 
 "Secrets" refer to sensitive pieces of information like API keys, database passwords, private keys, and access tokens. Hardcoding these directly into source code, configuration files, or version control systems is a major security vulnerability. Secure handling involves storing and accessing secrets in a way that limits exposure and provides robust access control.
 
@@ -574,7 +629,12 @@ API_KEY = os.environ.get("API_KEY")
 * **Dedicated Secrets Management Service (for production/complex setups):** Services like **HashiCorp Vault**, **AWS Secrets Manager**, **Google Cloud Secret Manager**, or **Azure Key Vault** allow you to centralize, encrypt, and tightly control access to secrets.  
 * Applications retrieve secrets at runtime via secure APIs, often using identity-based access.
 
-**Validate and sanitise user input**
+</details>
+
+<a id="validate-and-sanitise-user-input"></a>
+
+<details>
+<summary><h3>Validate and sanitise user input</h3></summary>
 
 Any data received from an untrusted source (e.g., user input from a web form, API request body, URL parameters) must be validated and sanitized.
 
@@ -618,7 +678,12 @@ app.post('/comment', (req, res) => {
 
 This ensures that only valid input is processed and any potentially harmful content is neutralized before storage or display.
 
-**Avoid hardcoded config or tokens**
+</details>
+
+<a id="avoid-hardcoded-config-or-tokens"></a>
+
+<details>
+<summary><h3>Avoid hardcoded config or tokens</h3></summary>
 
 Similar to secrets, general application configuration (e.g., database connection strings, service URLs, feature flags, environment settings) should not be hardcoded directly into the application's source code. This practice makes the application less flexible, harder to deploy to different environments (development, staging, production), and increases the risk of accidental exposure of sensitive details.
 
@@ -665,7 +730,12 @@ public class AppConfig {
 
 This allows you to change configurations without recompiling or redeploying the application, simply by providing a different configuration file for each environment.
 
-**Use static security analysis tools**
+</details>
+
+<a id="use-static-security-analysis-tools"></a>
+
+<details>
+<summary><h3>Use static security analysis tools</h3></summary>
 
 Static Application Security Testing (SAST) tools analyze source code, bytecode, or binary code to find security vulnerabilities without actually executing the program. They are typically used early in the Software Development Life Cycle (SDLC), often integrated into CI/CD pipelines, to provide rapid feedback to developers.
 
@@ -685,7 +755,12 @@ Static Application Security Testing (SAST) tools analyze source code, bytecode, 
    * Developers receive immediate feedback in their IDEs or on the pull request, highlighting the exact lines of code with the vulnerability and suggesting remediation steps.  
 5. **Security Gate:** SonarQube's "Quality Gate" can prevent code from being merged into the main branch if it doesn't meet defined security standards.
 
-**Follow OWASP top 10**
+</details>
+
+<a id="follow-owasp-top-10"></a>
+
+<details>
+<summary><h3>Follow OWASP top 10</h3></summary>
 
 The OWASP (Open Web Application Security Project) Top 10 is a widely recognised standard that lists the 10 most critical web application security risks. It serves as a foundational guide for developers and security professionals to understand and mitigate common vulnerabilities. Regularly reviewing and addressing these risks is crucial for building secure applications.
 
@@ -735,7 +810,12 @@ try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 
   * This ensures that user input is treated as data, not executable code.
 
-**Encrypt data at rest and in transit**
+</details>
+
+<a id="encrypt-data-at-rest-and-in-transit"></a>
+
+<details>
+<summary><h3>Encrypt data at rest and in transit</h3></summary>
 
 Encryption is crucial for protecting sensitive data from unauthorized access, both when it's being stored (at rest) and when it's being transmitted across networks (in transit).
 
@@ -757,3 +837,6 @@ Encryption is crucial for protecting sensitive data from unauthorized access, bo
   * **Disk/Volume Encryption:** Encrypting the entire disk or specific volumes where data is stored.  
   * **Object Storage Encryption:** Cloud storage services (e.g., AWS S3, Google Cloud Storage, Azure Blob Storage) offer server-side encryption for files stored in buckets.  
   * **Application-Level Encryption:** For extremely sensitive data, you might encrypt specific fields within the database using keys managed by your application or a Key Management System (KMS).
+
+</details>
+
