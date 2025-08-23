@@ -120,12 +120,12 @@ Tests should validate behaviour, not just pass checks. Good testing covers the r
 
 
 **Practices**
-- [Test for behaviour, not just implementation](docs/build-confidence.md#test-with-purpose-test-for-behaviour-not-just-implementation)
-- [Write unit tests with clear intent](docs/build-confidence.md#test-with-purpose-write-unit-tests-with-clear-intent)
-- [Use integration tests to cover real system flows](docs/build-confidence.md#test-with-purpose-use-integration-tests-to-cover-real-system-flows)
-- [Avoid fragile or flaky tests](docs/build-confidence.md#test-with-purpose-avoid-fragile-or-flaky-tests)
-- [Tests fail when they should](docs/build-confidence.md#test-with-purpose-tests-fail-when-they-should)
-- [Align with the testing pyramid](docs/build-confidence.md#test-with-purpose-align-with-the-testing-pyramid)
+- [Test for behaviour, not just implementation](docs/build-confidence.md)
+- [Write unit tests with clear intent](docs/build-confidence.md)
+- [Use integration tests to cover real system flows](docs/build-confidence.md)
+- [Avoid fragile or flaky tests](docs/build-confidence.md)
+- [Tests fail when they should](docs/build-confidence.md)
+- [Align with the testing pyramid](docs/build-confidence.md)
 
 </details>
 
@@ -181,11 +181,11 @@ Releasing software should be predictable and low-risk. Whether deploying every d
 
 
 **Practices**
-- [Use CI/CD pipelines with automated tests and checks](docs/ship-responsibly.md#ship-safely-roll-back-quickly-use-ci-cd-pipelines-with-automated-tests-and-checks)
-- [Deploy small changes regularly](docs/ship-responsibly.md#ship-safely-roll-back-quickly-deploy-small-changes-regularly)
-- [Use feature flags or toggles to control exposure](docs/ship-responsibly.md#ship-safely-roll-back-quickly-use-feature-flags-or-toggles-to-control-exposure)
-- [Automate rollback where possible](docs/ship-responsibly.md#ship-safely-roll-back-quickly-automate-rollback-where-possible)
-- [Monitor deployments for performance and errors](docs/ship-responsibly.md#ship-safely-roll-back-quickly-monitor-deployments-for-performance-and-errors)
+- [Use CI/CD pipelines with automated tests and checks](docs/ship-responsibly.md)
+- [Deploy small changes regularly](docs/ship-responsibly.md)
+- [Use feature flags or toggles to control exposure](docs/ship-responsibly.md)
+- [Automate rollback where possible](docs/ship-responsibly.md)
+- [Monitor deployments for performance and errors](docs/ship-responsibly.md)
 
 </details>
 
@@ -199,11 +199,11 @@ When systems break — and they will — failure should be obvious and contained
 
 
 **Practices**
-- [Add logging and monitoring from the start](docs/ship-responsibly.md#fail-loud-fail-safe-add-logging-and-monitoring-from-the-start)
-- [Use structured, actionable error messages](docs/ship-responsibly.md#fail-loud-fail-safe-use-structured-actionable-error-messages)
-- [Create alerts for key health indicators](docs/ship-responsibly.md#fail-loud-fail-safe-create-alerts-for-key-health-indicators)
-- [Design services to fail independently](docs/ship-responsibly.md#fail-loud-fail-safe-design-services-to-fail-independently)
-- [Use circuit breakers and retry logic](docs/ship-responsibly.md#fail-loud-fail-safe-use-circuit-breakers-and-retry-logic)
+- [Add logging and monitoring from the start](docs/ship-responsibly.md)
+- [Use structured, actionable error messages](docs/ship-responsibly.md)
+- [Create alerts for key health indicators](docs/ship-responsibly.md)
+- [Design services to fail independently](docs/ship-responsibly.md)
+- [Use circuit breakers and retry logic](docs/ship-responsibly.md)
 
 </details>
 
