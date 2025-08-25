@@ -36,12 +36,12 @@ Good systems evolve. Prioritise flexibility over premature optimisation, and des
 Different clients have different levels of technical maturity, shifting goals, and changing constraints. Prioritising adaptability — in people and in systems — makes it easier to respond, scale, and support long-term outcomes without waste.
 
 **Practices**
-- [Modularise where it makes sense](docs/design-for-change.md)
-- [Separation of concerns](docs/design-for-change.md)
-- [Composition over inheritance](/docs/design-for-change.md)
-- [DRY](docs/design-for-change.md)
-- [Clean-up early (or agree on what debt you’ll consciously carry)](docs/design-for-change.md)
-- [Design for iteration, not premature componentisation](docs/design-for-change.md)
+- [Modularise where it makes sense](docs/design-for-change.md#modular-structure)
+- [Separation of concerns](docs/design-for-change.md#separation-of-concerns)
+- [Composition over inheritance](docs/design-for-change.md#composition-over-inheritance)
+- [DRY](docs/design-for-change.md#dry)
+- [Clean-up early (or agree on what debt you’ll consciously carry)](docs/design-for-change.md#clean-up-early)
+- [Design for iteration, not premature componentisation](docs/design-for-change.md#design-for-iteration)
 
 </details>
 
@@ -55,12 +55,10 @@ Design decisions should always be driven by the value they deliver — not by no
 Clients vary widely in their size, priorities, and constraints. Some need speed and flexibility; others need longevity and control. Building the most technically sophisticated system is not the goal — solving the right problem, for the right people, at the right scale is. Focusing on value ensures that engineering effort creates real-world outcomes, not just technical artefacts.
 
 **Practices**
-- [Start with the why](docs/design-for-change.md)
-- [Right-size the solution](docs/design-for-change.md)
-- [Prioritise client value](docs/design-for-change.md)
-- [Focus on user needs](docs/design-for-change.md)
-- [Include accessibility and inclusivity](docs/design-for-change.md)
-- [Challenge over-engineering](docs/design-for-change.md)
+- [Start with the why](docs/design-for-change.md#start-with-the-why)
+- [Right-size the solution](docs/design-for-change.md#right-sized-solution-infrastructure--tech-choices)
+- [Prioritise client value](docs/design-for-change.md#prioritise-client-value)
+- [Get the Razor Out (Strive for Simplicity)](docs/design-for-change.md#get-the-razor-out-strive-for-simplicity)
 
 </details>
 
@@ -79,12 +77,12 @@ Code, commits, and pull requests should communicate intent clearly without needi
 Readable code saves time, reduces onboarding friction, and helps teams collaborate more effectively. It also prevents misunderstandings that can lead to bugs. Good naming and structure don’t just help engineers now — they also help those who come after.
 
 **Practices**
-- [Favour consistency](docs/code-for-clarity.md)
-- [Small, purposeful functions](docs/code-for-clarity.md)
-- [Self-explaining pull requests](docs/code-for-clarity.md)
-- [Descriptive commit messages](docs/code-for-clarity.md)
-- [Readable, minimal diff noise](docs/code-for-clarity.md)
-- [Comments should un-block](docs/code-for-clarity.md)
+- [Favour consistency](docs/code-for-clarity.md#favour-consistency)
+- [Small, purposeful functions](docs/code-for-clarity.md#small-purposeful-functions)
+- [Self-explaining pull requests](docs/code-for-clarity.md#self-explaining-pull-requests)
+- [Descriptive commit messages](docs/code-for-clarity.md#descriptive-commit-messages)
+- [Readable, minimal diff noise](docs/code-for-clarity.md#readable-minimal-diff-noise)
+- [Comments should un-block](docs/code-for-clarity.md#comments-should-un-block)
 
 </details>
 
@@ -98,11 +96,11 @@ Repetitive, error-prone tasks should be automated wherever possible. This includ
 Manual steps are fragile, inconsistent, and time-consuming. Automation helps teams move faster with less risk, freeing up time for problem-solving and reducing friction in delivery.
 
 **Practices**
-- [Use linters and formatters](docs/code-for-clarity.md)
-- [Automate test runs](docs/code-for-clarity.md)
-- [Enforce commit standards](docs/code-for-clarity.md)
-- [Run static analysis in CI](docs/code-for-clarity.md)
-- [Script setup tasks and deployments](docs/code-for-clarity.md)
+- [Use linters and formatters](docs/code-for-clarity.md#use-linters-and-formatters)
+- [Automate test runs](docs/code-for-clarity.md#automate-test-runs)
+- [Enforce commit standards](docs/code-for-clarity.md#enforce-commit-standards)
+- [Run static analysis in CI](docs/code-for-clarity.md#run-static-analysis-in-ci)
+- [Script setup tasks and deployments](docs/code-for-clarity.md#script-setup-tasks-and-deployments)
 </details>
 
 ---
@@ -120,12 +118,12 @@ Tests should validate behaviour, not just pass checks. Good testing covers the r
 
 
 **Practices**
-- [Test for behaviour, not just implementation](docs/build-confidence.md)
-- [Write unit tests with clear intent](docs/build-confidence.md)
-- [Use integration tests to cover real system flows](docs/build-confidence.md)
-- [Avoid fragile or flaky tests](docs/build-confidence.md)
-- [Tests fail when they should](docs/build-confidence.md)
-- [Align with the testing pyramid](docs/build-confidence.md)
+- [Test for behaviour, not just implementation](docs/build-confidence.md#test-for-behaviour-not-just-implementation)
+- [Write unit tests with clear intent](docs/build-confidence.md#write-unit-tests-with-clear-intent)
+- [Use integration tests to cover real system flows](docs/build-confidence.md#use-integration-tests-to-cover-real-system-flows)
+- [Avoid fragile or flaky tests](docs/build-confidence.md#avoid-fragile-or-flaky-tests)
+- [Tests fail when they should](docs/build-confidence.md#tests-fail-when-they-should)
+- [Align with the testing pyramid](docs/build-confidence.md#align-with-the-testing-pyramid)
 
 </details>
 
@@ -139,11 +137,11 @@ Quality should be built in from the start — not added at the end. Surface prob
 
 
 **Practices**
-- [Use pre-commit hooks for quick checks](docs/build-confidence.md#catch-issues-early-use-pre-commit-hooks-for-quick-checks)
-- [Run linting and formatting automatically](docs/build-confidence.md#catch-issues-early-run-linting-and-formatting-automatically)
-- [Set up type checking and static analysis](docs/build-confidence.md#catch-issues-early-set-up-type-checking-and-static-analysis)
-- [Define clear PR review standards](docs/build-confidence.md#catch-issues-early-define-clear-pr-review-standards)
-- [Run tests in CI, not just locally](docs/build-confidence.md#catch-issues-early-run-tests-in-ci-not-just-locally)
+- [Use pre-commit hooks for quick checks](docs/build-confidence.md#use-pre-commit-hooks-for-quick-checks)
+- [Run linting and formatting automatically](docs/build-confidence.md#run-linting-and-formatting-automatically)
+- [Set up type checking and static analysis](docs/build-confidence.md#set-up-type-checking-and-static-analysis)
+- [Define clear PR review standards](docs/build-confidence.md#define-clear-pr-review-standards)
+- [Run tests in CI, not just locally](docs/build-confidence.md#run-tests-in-ci-not-just-locally)
 
 </details>
 
@@ -157,12 +155,12 @@ Security should be built into the system from the start — not bolted on later.
 
 
 **Practices**
-- [Handle secrets and credentials securely](docs/build-confidence.md#secure-by-default-handle-secrets-and-credentials-securely)
-- [Validate and sanitise user input](docs/build-confidence.md#secure-by-default-validate-and-sanitise-user-input)
-- [Avoid hardcoded config or tokens](docs/build-confidence.md#secure-by-default-avoid-hardcoded-config-or-tokens)
-- [Use static security analysis tools](docs/build-confidence.md#secure-by-default-use-static-security-analysis-tools)
-- [Follow OWASP top 10](docs/build-confidence.md#secure-by-default-follow-owasp-top-10)
-- [Encrypt data at rest and in transit](docs/build-confidence.md#secure-by-default-encrypt-data-at-rest-and-in-transit)
+- [Handle secrets and credentials securely](docs/build-confidence.md#handle-secrets-and-credentials-securely)
+- [Validate and sanitise user input](docs/build-confidence.md#validate-and-sanitise-user-input)
+- [Avoid hardcoded config or tokens](docs/build-confidence.md#avoid-hardcoded-config-or-tokens)
+- [Use static security analysis tools](docs/build-confidence.md#use-static-security-analysis-tools)
+- [Follow OWASP top 10](docs/build-confidence.md#follow-owasp-top-10)
+- [Encrypt data at rest and in transit](docs/build-confidence.md#encrypt-data-at-rest-and-in-transit)
 
 </details>
 
@@ -181,11 +179,11 @@ Releasing software should be predictable and low-risk. Whether deploying every d
 
 
 **Practices**
-- [Use CI/CD pipelines with automated tests and checks](docs/ship-responsibly.md)
-- [Deploy small changes regularly](docs/ship-responsibly.md)
-- [Use feature flags or toggles to control exposure](docs/ship-responsibly.md)
-- [Automate rollback where possible](docs/ship-responsibly.md)
-- [Monitor deployments for performance and errors](docs/ship-responsibly.md)
+- [Use CI/CD pipelines with automated tests and checks](docs/ship-responsibly.md#use-cicd-pipelines-with-automated-tests-and-checks)
+- [Deploy small changes regularly](docs/ship-responsibly.md#deploy-small-changes-regularly)
+- [Use feature flags or toggles to control exposure](docs/ship-responsibly.md#use-feature-flags-or-toggles-to-control-exposure)
+- [Automate rollback where possible](docs/ship-responsibly.md#automate-rollback-where-possible)
+- [Monitor deployments for performance and errors](docs/ship-responsibly.md#monitor-deployments-for-performance-and-errors)
 
 </details>
 
@@ -199,11 +197,11 @@ When systems break — and they will — failure should be obvious and contained
 
 
 **Practices**
-- [Add logging and monitoring from the start](docs/ship-responsibly.md)
-- [Use structured, actionable error messages](docs/ship-responsibly.md)
-- [Create alerts for key health indicators](docs/ship-responsibly.md)
-- [Design services to fail independently](docs/ship-responsibly.md)
-- [Use circuit breakers and retry logic](docs/ship-responsibly.md)
+- [Add logging and monitoring from the start](docs/ship-responsibly.md#add-logging-and-monitoring-from-the-start)
+- [Use structured, actionable error messages](docs/ship-responsibly.md#use-structured-actionable-error-messages)
+- [Create alerts for key health indicators](docs/ship-responsibly.md#create-alerts-for-key-health-indicators)
+- [Design services to fail independently](docs/ship-responsibly.md#design-services-to-fail-independently)
+- [Use circuit breakers and retry logic](docs/ship-responsibly.md#use-circuit-breakers-and-retry-logic)
 
 </details>
 
