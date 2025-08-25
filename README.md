@@ -11,7 +11,7 @@ You’ll also find links to any relevant tools, community guidelines, or standar
 
 ## What the Terms Mean
 
-**Principles** are the core concepts that define good engineering at CreateFuture. They apply to every team and every project, regardless of technology or experience level. Principles explain *why* we do things a certain way — they don’t change often.
+**Principles** are the core concepts that define good engineering at CreateFuture. They apply to every team and every project, regardless of technology or experience level. Principles explain _why_ we do things a certain way — they don’t change often.
 
 **Practices** show how those principles are applied in real work. They include examples, behaviours, and patterns that help you understand what the principle looks like in action.
 
@@ -24,6 +24,7 @@ Projects vary. Clients use different tools, standards, and ways of working — b
 ---
 
 ## Design for Change
+
 _Covers: Architecture and planning, with client and future context in mind._
 
 <details>
@@ -36,6 +37,7 @@ Good systems evolve. Prioritise flexibility over premature optimisation, and des
 Different clients have different levels of technical maturity, shifting goals, and changing constraints. Prioritising adaptability — in people and in systems — makes it easier to respond, scale, and support long-term outcomes without waste.
 
 **Practices**
+
 - [Modularise where it makes sense](docs/design-for-change.md#modular-structure)
 - [Separation of concerns](docs/design-for-change.md#separation-of-concerns)
 - [Composition over inheritance](docs/design-for-change.md#composition-over-inheritance)
@@ -55,6 +57,7 @@ Design decisions should always be driven by the value they deliver — not by no
 Clients vary widely in their size, priorities, and constraints. Some need speed and flexibility; others need longevity and control. Building the most technically sophisticated system is not the goal — solving the right problem, for the right people, at the right scale is. Focusing on value ensures that engineering effort creates real-world outcomes, not just technical artefacts.
 
 **Practices**
+
 - [Start with the why](docs/design-for-change.md#start-with-the-why)
 - [Right-size the solution](docs/design-for-change.md#right-sized-solution-infrastructure--tech-choices)
 - [Prioritise client value](docs/design-for-change.md#prioritise-client-value)
@@ -65,6 +68,7 @@ Clients vary widely in their size, priorities, and constraints. Some need speed 
 ---
 
 ## Code for Clarity
+
 _Covers: Implementation choices, readability, simplicity, communication._
 
 <details>
@@ -77,6 +81,7 @@ Code, commits, and pull requests should communicate intent clearly without needi
 Readable code saves time, reduces onboarding friction, and helps teams collaborate more effectively. It also prevents misunderstandings that can lead to bugs. Good naming and structure don’t just help engineers now — they also help those who come after.
 
 **Practices**
+
 - [Favour consistency](docs/code-for-clarity.md#favour-consistency)
 - [Small, purposeful functions](docs/code-for-clarity.md#small-purposeful-functions)
 - [Self-explaining pull requests](docs/code-for-clarity.md#self-explaining-pull-requests)
@@ -96,6 +101,7 @@ Repetitive, error-prone tasks should be automated wherever possible. This includ
 Manual steps are fragile, inconsistent, and time-consuming. Automation helps teams move faster with less risk, freeing up time for problem-solving and reducing friction in delivery.
 
 **Practices**
+
 - [Use linters and formatters](docs/code-for-clarity.md#use-linters-and-formatters)
 - [Automate test runs](docs/code-for-clarity.md#automate-test-runs)
 - [Enforce commit standards](docs/code-for-clarity.md#enforce-commit-standards)
@@ -106,6 +112,7 @@ Manual steps are fragile, inconsistent, and time-consuming. Automation helps tea
 ---
 
 ## Build Confidence
+
 _Covers: Quality, testing, and security hardening that builds trust._
 
 <details>
@@ -115,9 +122,10 @@ Tests should validate behaviour, not just pass checks. Good testing covers the r
 
 **Why it matters**
 
-
+Good tests allow developers to have confidence in changing the codebase. New functionality, refactoring and general changes can be made, safe in the assurance any issues will be highlighted by the tests. Reducing the rick of regressions and speeding up the development cycle.
 
 **Practices**
+
 - [Test for behaviour, not just implementation](docs/build-confidence.md#test-for-behaviour-not-just-implementation)
 - [Write unit tests with clear intent](docs/build-confidence.md#write-unit-tests-with-clear-intent)
 - [Use integration tests to cover real system flows](docs/build-confidence.md#use-integration-tests-to-cover-real-system-flows)
@@ -134,9 +142,10 @@ Quality should be built in from the start — not added at the end. Surface prob
 
 **Why it matters**
 
-
+By catching issues early we build confidence in the team and the codebase and reduce the effects of production bugs on quality and reputation. It also allows for a focus on shipping new features that matter rather than frustratingly debugging old code.
 
 **Practices**
+
 - [Use pre-commit hooks for quick checks](docs/build-confidence.md#use-pre-commit-hooks-for-quick-checks)
 - [Run linting and formatting automatically](docs/build-confidence.md#run-linting-and-formatting-automatically)
 - [Set up type checking and static analysis](docs/build-confidence.md#set-up-type-checking-and-static-analysis)
@@ -151,10 +160,10 @@ Quality should be built in from the start — not added at the end. Surface prob
 Security should be built into the system from the start — not bolted on later. Default to secure patterns, handle sensitive data with care, and use the tools and checks that help prevent common vulnerabilities.
 
 **Why it matters**
-
-
+Handling security issues upfront is preferable to dealing with a breach or event further down the line. Being proactive and building trustworthy systems means we protect our clients and our reputation.
 
 **Practices**
+
 - [Handle secrets and credentials securely](docs/build-confidence.md#handle-secrets-and-credentials-securely)
 - [Validate and sanitise user input](docs/build-confidence.md#validate-and-sanitise-user-input)
 - [Avoid hardcoded config or tokens](docs/build-confidence.md#avoid-hardcoded-config-or-tokens)
@@ -167,6 +176,7 @@ Security should be built into the system from the start — not bolted on later.
 ---
 
 ## Ship Responsibly
+
 _Covers: Deployment, rollback, operability, and incident response._
 
 <details>
@@ -176,9 +186,10 @@ Releasing software should be predictable and low-risk. Whether deploying every d
 
 **Why it matters**
 
-
+Being able to roll back quickly is a powerful safety net. It gives us the confidence to iterate fast and try new things, safe in the knowledge that mistakes can be easily reverted. This removes the anxiety associated with releasing software and makes our deployments predictable and low-risk.
 
 **Practices**
+
 - [Use CI/CD pipelines with automated tests and checks](docs/ship-responsibly.md#use-cicd-pipelines-with-automated-tests-and-checks)
 - [Deploy small changes regularly](docs/ship-responsibly.md#deploy-small-changes-regularly)
 - [Use feature flags or toggles to control exposure](docs/ship-responsibly.md#use-feature-flags-or-toggles-to-control-exposure)
@@ -194,9 +205,10 @@ When systems break — and they will — failure should be obvious and contained
 
 **Why it matters**
 
-
+By failing loud, we make sure issues are caught early, which prevents a small problem from spiraling into a larger outage. And by failing safe, we can often maintain a reasonable user experience, preserving the client's trust and our own reputation while we address the issue.
 
 **Practices**
+
 - [Add logging and monitoring from the start](docs/ship-responsibly.md#add-logging-and-monitoring-from-the-start)
 - [Use structured, actionable error messages](docs/ship-responsibly.md#use-structured-actionable-error-messages)
 - [Create alerts for key health indicators](docs/ship-responsibly.md#create-alerts-for-key-health-indicators)
