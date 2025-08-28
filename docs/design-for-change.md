@@ -163,7 +163,7 @@ if (features.isEnabled('newFlow')) {
 
 Delivering software that matters means making deliberate choices to maximise value, not chasing novelty, complexity, or shiny solutions for their own sake. Impactful engineering is about understanding the goal, making pragmatic decisions, and delivering robust, maintainable results that solve the real problem.
 
-Clients vary widely in their size,, priorities, and constraints. Some need speed and flexibility, while others require longevity and control. Building the most technically sophisticated system is not the goal — solving the right problem, for the right people, at the right scale is. Focusing on value ensures that engineering effort creates real-world outcomes, not just technical artefacts.
+Clients vary widely in their size, priorities, and constraints. Some need speed and flexibility, while others require longevity and control. Building the most technically sophisticated system is not the goal — solving the right problem, for the right people, at the right scale is. Focusing on value ensures that engineering effort creates real-world outcomes, not just technical artefacts.
 
 
 <a id="start-with-the-why"></a>
