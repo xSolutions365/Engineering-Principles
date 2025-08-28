@@ -30,7 +30,7 @@ _Covers: Architecture and planning, with client and future context in mind._
 <details>
 <summary><h3>Build with change in mind</h3></summary>
 
-Good systems evolve. Prioritise flexibility over premature optimisation, and design with the assumption that requirements will shift. Choose patterns and architectures that are easy to understand and adapt, even if it means starting simpler — or consciously cutting corners now, with a clear plan for when and how to revisit later.. This means delivering value fast — but leaving room to grow without rewriting everything later.
+Good systems evolve. Prioritise flexibility over premature optimisation, and design with the assumption that requirements will shift. Choose patterns and architectures that are easy to understand and adapt, even if it means starting simpler — or consciously cutting corners now, with a clear plan for when and how to revisit later. This means delivering value fast — but leaving room to grow without rewriting everything later.
 
 **Why it matters**
 
@@ -74,7 +74,7 @@ _Covers: Implementation choices, readability, simplicity, communication._
 <details>
 <summary><h3>Let the code do the talking</h3></summary>
 
-Code, commits, and pull requests should communicate intent clearly without needing extra explanation. Clear naming, focused functions, meaningful commit messages, and well-structured PRs all contribute to code that’s easy to read, understand, and maintain — even for someone joining the project fresh. Code comments should be used sparingly, and only to provide information that you’re unable to ariculate with the code itself. Think about the next engineer: from the code alone, can they get all the infromation they need to be able to work in that area? How easy is it for them to surface this, and how useful would they find it?
+Code, commits, and pull requests should communicate intent clearly without needing extra explanation. Clear naming, focused functions, meaningful commit messages, and well-structured PRs all contribute to code that’s easy to read, understand, and maintain — even for someone joining the project fresh. Code comments should be used sparingly, and only to provide information that you’re unable to articulate with the code itself. Think about the next engineer: from the code alone, can they get all the information they need to be able to work in that area? How easy is it for them to surface this, and how useful would they find it?
 
 **Why it matters**
 
@@ -160,6 +160,7 @@ By catching issues early we build confidence in the team and the codebase and re
 Security should be built into the system from the start — not bolted on later. Default to secure patterns, handle sensitive data with care, and use the tools and checks that help prevent common vulnerabilities.
 
 **Why it matters**
+
 Handling security issues upfront is preferable to dealing with a breach or event further down the line. Being proactive and building trustworthy systems means we protect our clients and our reputation.
 
 **Practices**

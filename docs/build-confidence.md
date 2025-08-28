@@ -22,7 +22,7 @@ This test checks if a specific internal method (`_fetchPreferencesFromDB`) is ca
 
 JavaScript
 
-```
+```javascript
 // userService.js
 class UserProfileService {
   constructor(db) {
@@ -59,7 +59,7 @@ This test focuses on the outcome: given a user ID, the service should return the
 
 JavaScript
 
-```
+```javascript
 // good.test.js
 it('should return user preferences for a given user ID', async () => {
   const mockDb = {
@@ -95,12 +95,12 @@ Each unit test should verify a single, specific piece of functionality, conditio
 
 JavaScript
 
-```
+```javascript
 // Bad naming and multiple concerns
 it('validates password', () => {
   const validator = new PasswordValidator();
   expect(validator.isValid('short')).toBe(false);       // Length
- expect(validator.isValid('longenough')).toBe(false);  // Missing special char
+  expect(validator.isValid('longenough')).toBe(false);  // Missing special char
   expect(validator.isValid('LongEnough!')).toBe(true); // Valid
 });
 ```
@@ -109,7 +109,7 @@ it('validates password', () => {
 
 JavaScript
 
-```
+```javascript
 // passwordValidator.js (example implementation)
 class PasswordValidator {
   isValid(password) {
@@ -185,7 +185,7 @@ Integration tests verify the interactions between different components, modules,
 
 TypeScript
 
-```
+```typescript
 // Pseudocode for an integration test
 describe('/orders API endpoint', () => {
   let mockProductService;
@@ -216,9 +216,9 @@ describe('/orders API endpoint', () => {
 
 
     // Assert: (assuming direct controller call for simplicity here)
-    // expect(response.status).toBe(201);
-    // expect(response.body.orderId).toBeDefined();
-    // expect(response.body.status).toBe('CONFIRMED');
+    expect(response.status).toBe(201);
+    expect(response.body.orderId).toBeDefined();
+    expect(response.body.status).toBe('CONFIRMED');
 
     expect(mockProductService.checkStock).toHaveBeenCalledWith('prodABC', 1);
     expect(mockProductService.reduceStock).toHaveBeenCalledWith('prodABC', 1);
@@ -239,11 +239,15 @@ describe('/orders API endpoint', () => {
 <details>
 <summary><h3>Avoid fragile or flaky tests</h3></summary>
 
-Fragile tests break easily due to minor, unrelated changes in the production code (e.g., renaming a private method, changing UI structure that doesn't affect behaviour). Flaky tests pass or fail inconsistently without any code changes, often due to issues like race conditions, reliance on external systems, unmanaged test data, or timing dependencies. Both erode confidence in the test suite. **Examples** **Fragile Test (UI Example):** A UI test that uses a very specific CSS selector or relies on the exact text of a button.
+Fragile tests break easily due to minor, unrelated changes in the production code (e.g., renaming a private method, changing UI structure that doesn't affect behaviour). Flaky tests pass or fail inconsistently without any code changes, often due to issues like race conditions, reliance on external systems, unmanaged test data, or timing dependencies. Both erode confidence in the test suite. 
+
+**Examples** 
+
+**Fragile Test (UI Example):** A UI test that uses a very specific CSS selector or relies on the exact text of a button.
 
 JavaScript
 
-```
+```javascript
 // Fragile selector
 const submitButton = document.querySelector('div.container > form#checkoutForm > button.primary-button.large');
 // If class names or structure change, test breaks.
@@ -259,7 +263,7 @@ Avoid over-relying on styling hooks (class names, deep CSS paths).
 
 JavaScript
 
-```
+```javascript
 <!-- HTML -->
 <button aria-label="Submit order">Submit</button>
 // Query by accessible role + label
@@ -275,7 +279,7 @@ const submitButton = screen.getByTestId('checkout-submit-button');
 
 JavaScript
 
-```
+```javascript
 it('updates user status after some time', (done) => {
   userService.updateStatusAsync('user123', 'active');
   setTimeout(() => {
@@ -290,7 +294,7 @@ it('updates user status after some time', (done) => {
 
 JavaScript
 
-```
+```javascript
 it('updates user status after async operation', async () => {
   await userService.updateStatusAsync('user123', 'active'); // Assuming this returns a promise
   const status = userService.getStatus('user123');
@@ -303,7 +307,7 @@ it('updates user status after async operation', async () => {
 * **Shared State:** Ensure tests are isolated and don't share mutable state. Reset state before/after each test.  
 * **External Dependencies:** Mock external services reliably or use dedicated test instances.  
 * **Random Data:** If tests use random data, ensure failures can be reproduced by seeding the random generator or logging the problematic data.  
-* Using current date/time: This can cause similar problems to random data where you can’t guarentee the test will always pass.
+* Using current date/time: This can cause similar problems to random data where you can’t guarantee the test will always pass.
 
 </details>
 
@@ -350,7 +354,7 @@ The testing pyramid is a model that guides the allocation of different types of 
     * Verify that calling `POST /cart/items` with valid product data correctly updates the cart (e.g., checks database or session) and interacts appropriately with a (mocked or test-instanced) `ProductService` to check availability.  
   * Test interaction between `CartService` and `InventoryService` when an item is added.  
 * **End-to-End / UI Tests (Fewest):**  
-  * One test to simulate a user Browse a product, clicking "Add to Cart," and verifying the item appears in the mini-cart UI and the cart page correctly reflects the new item and total.
+  * One test to simulate a user browsing a product, clicking "Add to Cart," and verifying the item appears in the mini-cart UI and the cart page correctly reflects the new item and total.
 
 **Anti-Patterns:**
 
@@ -434,7 +438,7 @@ Linting and formatting tools enforce consistent code style, identify potential e
 
 YAML
 
-```
+```yaml
 # Example GitHub Actions step for linting and formatting check
 name: CI
 on: [push]
@@ -479,7 +483,7 @@ This practice goes beyond basic linting to perform deeper code analysis.
 1. **TypeScript Integration:**
 
 ```ts
-// Example TypeScript code
+// Example TypeScript code
 interface User {
   id: number;
   name: string;
@@ -563,7 +567,7 @@ While local testing is essential for developer productivity, relying solely on i
 
 YAML
 
-```
+```yaml
 # Example GitHub Actions workflow snippet for running tests in CI
 name: CI Tests
 on:
@@ -616,10 +620,10 @@ API_KEY = "sk_live_xyz123abc"
 Use a **Secrets Management Service** or **Environment Variables**:
 
 * **Environment Variables (for simpler deployments/local dev):**  
-   Python
 
-```java
-# GOOD PRACTICE: Read from environment variable
+```py
+# GOOD PRACTICE: Read from environment variable
+# Python example
 import os
 DB_PASSWORD = os.environ.get("DB_PASSWORD")
 API_KEY = os.environ.get("API_KEY")
@@ -772,7 +776,7 @@ The OWASP (Open Web Application Security Project) Top 10 is a widely recognised 
     * *Example:* Before allowing a user to view an order, the server-side code verifies that the `orderId` belongs to the authenticated user.
 
 ```javascript
-// Node.js Express example
+// Node.js Express example
 app.get('/orders/:orderId', authenticateUser, (req, res) => {
     const orderId = req.params.orderId;
     const userId = req.user.id; // Get ID from authenticated user
@@ -787,15 +791,13 @@ app.get('/orders/:orderId', authenticateUser, (req, res) => {
 });
 ```
 
-  * 
-
 * **A03:2021 \- Injection (e.g., SQL Injection):**  
   * **Vulnerability:** Untrusted data is sent to an interpreter as part of a command or query, tricking the interpreter into executing unintended commands.  
   * **Mitigation:** Use parameterized queries (prepared statements) or Object-Relational Mappers (ORMs). **Never concatenate user input directly into SQL queries.**  
     * *Example (SQL Injection prevention):*
 
 ```java
-// Java example using PreparedStatement (JDBC)
+// Java example using PreparedStatement (JDBC)
 String username = request.getParameter("username");
 String password = request.getParameter("password");
 

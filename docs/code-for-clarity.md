@@ -12,7 +12,7 @@ Below are some common practices that help ensure our code speaks for itself, dra
 <summary><h3>Favour consistency</h3></summary>
 
 A consistent approach to naming, architecture, error handling etc. can help remove ambiguity when developing applications. When things are consistent, it’s much harder to be caught off guard with a certain way things have been implemented. This doesn’t only help with maintaining the application; it can help to provide a clear structure to implement new features as well.
-It’s not unheard for a client to enforce a particular way of working that isn’t deemed optimal. This can be for many reasons, such as the client having their own more specific engineering principles they must enforce. Though we should be communicating these defficiencies, in these scenarios we should avoid implementing what we deem to be best practice if it were to introduce a different way of doing things.
+It’s not unheard for a client to enforce a particular way of working that isn’t deemed optimal. This can be for many reasons, such as the client having their own more specific engineering principles they must enforce. Though we should be communicating these deficiencies, in these scenarios we should avoid implementing what we deem to be best practice if it were to introduce a different way of doing things.
 Variable, function, class, and module names should clearly convey their purpose and how they are used. Adhering to a consistent naming strategy across a project or even a language community significantly aids readability.
 Examples
 Poor vs. Good Naming (Variables)
@@ -30,7 +30,7 @@ function processPayment(paymentDetails) { /* ... */ }
 ```
 ```js
 class Employee {
-function deleteEmployee() { /* ... */ } // Unecessarily verbose
+function deleteEmployee() { /* ... */ } // Unnecessarily verbose
 }
 // After
 class Employee {
