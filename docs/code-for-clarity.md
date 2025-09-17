@@ -141,7 +141,26 @@ Comments should add extra context that can’t be obtained from the code itself.
 When added, they should explain the “why” behind the code, rather than the “what”, as the “what” should be implicit from reading the code itself. Ask yourself “how is this comment going to help the reader work in this area?”.
 Comments tend to be especially prevalent in AI-generated code, so be militant as always when checking the output, or tailor prompts to protect against this.
 TODOs should only be left in code with details on when this will be resolved, ideally containing a reference to a ticket.
-Examples
+
+**Examples**
+
+```js
+// Check to see if the price is too high
+if (price > MAX_PRICE) ...
+// ^ BAD: this comment adds no extra information
+
+// Here be dragons
+if (price > MAX_PRICE) ...
+// ^ BAD: this comment isn't helpful
+
+// TODO: we need to simplify this
+if (price > MAX_PRICE) ...
+// ^ BAD: When? How? 
+
+// We need to handle expensive items differently due to x, see here for more info
+if (price > MAX_PRICE) ...
+// ^ GOOD: gives context outside of the immediate lines of code, and points reader to where they can learn more
+```
 
 </details>
 
